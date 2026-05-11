@@ -94,7 +94,7 @@ export const metadata: Metadata = {
   },
 
   verification: {
-    google: "REPLACE_WITH_GOOGLE_SEARCH_CONSOLE_TOKEN",
+    google: "f5a6db9c70ad30e2",
   },
 
   other: {
