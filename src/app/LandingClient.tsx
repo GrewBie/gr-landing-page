@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ContainerScroll } from "@/components/ui/container-scroll-animation";
 import { StoryScroll, StoryStep } from "@/components/ui/story-scroll";
 import { BackgroundShades } from "@/components/ui/background-shades";
@@ -47,8 +47,9 @@ const GrewbieLogo = ({ size = 32 }: { size?: number }) => (
 
 /* ── Dashboard mock ───────────────────────────────────────── */
 const DashboardMock = () => (
-  <div className="w-full h-full min-h-[320px] md:min-h-[440px] bg-zinc-950 rounded-xl flex flex-col p-4 gap-3" role="img" aria-label="DemoAgent live call dashboard showing AI conducting a sales demo">
-    <div className="flex items-center gap-2">
+  <div className="w-full h-full min-h-[240px] md:min-h-[440px] bg-zinc-950 rounded-xl flex flex-col p-3 md:p-4 gap-3" role="img" aria-label="DemoAgent live call dashboard showing AI conducting a sales demo">
+    {/* Window chrome — hidden on mobile to save space */}
+    <div className="hidden md:flex items-center gap-2">
       <div className="w-3 h-3 rounded-full bg-red-500/70" aria-hidden />
       <div className="w-3 h-3 rounded-full bg-yellow-500/70" aria-hidden />
       <div className="w-3 h-3 rounded-full bg-emerald-500/70" aria-hidden />
@@ -56,7 +57,49 @@ const DashboardMock = () => (
         <span className="text-[10px] text-zinc-500">demoagent.grewbie.com/live/acme-corp</span>
       </div>
     </div>
-    <div className="flex-1 grid grid-cols-3 gap-3 min-h-0">
+
+    {/* Mobile simplified layout */}
+    <div className="flex md:hidden flex-col gap-3 flex-1">
+      <div className="flex items-center gap-3 bg-zinc-900 rounded-lg p-3">
+        <div className="w-10 h-10 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center flex-shrink-0">
+          <span className="text-emerald-400 text-sm font-bold">AI</span>
+        </div>
+        <div className="flex-1 min-w-0">
+          <div className="flex items-center gap-2 mb-0.5">
+            <span className="text-white text-sm font-semibold">DemoAgent</span>
+            <div className="flex items-center gap-1">
+              <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" aria-hidden />
+              <span className="text-emerald-400 text-xs">Live</span>
+            </div>
+          </div>
+          <span className="text-zinc-500 text-xs">Acme Corp · Stage: Discovery · 12:34</span>
+        </div>
+      </div>
+      <div className="bg-zinc-900 rounded-lg p-3 flex-1">
+        <div className="text-xs text-emerald-400 mb-2 font-medium">Live transcript</div>
+        <p className="text-zinc-400 text-xs leading-relaxed">
+          &ldquo;Great question — our automation reduces onboarding time by 60%. Let me show you the workflow…&rdquo;
+        </p>
+        <div className="mt-2 h-1 bg-zinc-800 rounded-full overflow-hidden">
+          <div className="h-full w-3/4 bg-emerald-500 rounded-full animate-pulse" />
+        </div>
+        <div className="flex gap-2 mt-3">
+          {[
+            { val: "3", label: "Active demos" },
+            { val: "94%", label: "Completion" },
+            { val: "∞", label: "Capacity" },
+          ].map((s) => (
+            <div key={s.label} className="flex-1 bg-zinc-800/60 rounded-lg p-2 text-center">
+              <div className="text-emerald-400 font-bold text-base">{s.val}</div>
+              <div className="text-zinc-500 text-[9px]">{s.label}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    {/* Desktop full layout */}
+    <div className="hidden md:grid flex-1 grid-cols-3 gap-3 min-h-0">
       <div className="col-span-1 bg-zinc-900 rounded-lg p-3 flex flex-col gap-3">
         <div className="flex items-center gap-2">
           <div className="w-8 h-8 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center">
@@ -303,6 +346,7 @@ export default function LandingClient() {
     title: "Book a free demo",
     subtitle: "Tell us about yourself and we'll reach out within 24 hours.",
   });
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const openDemo = () =>
     setModal({ open: true, interest: "demo", title: "Book a free demo", subtitle: "See DemoAgent live on a call. We'll set it up for you." });
@@ -311,6 +355,12 @@ export default function LandingClient() {
     setModal({ open: true, interest: "brand-cure", title: "Get a free consultation", subtitle: "Let's talk about your marketing and automation goals." });
 
   const closeModal = () => setModal((m) => ({ ...m, open: false }));
+
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    document.body.style.overflow = mobileMenuOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [mobileMenuOpen]);
 
   return (
     <div className="relative bg-black text-white overflow-x-hidden">
@@ -327,7 +377,7 @@ export default function LandingClient() {
       {/* ── Header / Navbar ── */}
       <header>
         <nav
-          className="fixed top-0 inset-x-0 z-50 flex items-center justify-between px-6 md:px-12 h-16 border-b border-white/5 bg-black/60 backdrop-blur-md"
+          className="fixed top-0 inset-x-0 z-50 flex items-center justify-between px-5 md:px-12 h-16 border-b border-white/5 bg-black/60 backdrop-blur-md"
           aria-label="Main navigation"
         >
           <a href="/" className="flex items-center gap-2.5" aria-label="Grewbie Technologies home">
@@ -363,13 +413,67 @@ export default function LandingClient() {
             </a>
             <button
               onClick={openDemo}
-              className="text-sm font-semibold px-4 py-2 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-black transition-colors cursor-pointer"
+              className="text-sm font-semibold px-4 py-2 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-black transition-colors cursor-pointer hidden sm:block"
               aria-label="Book a free DemoAgent demo"
             >
               Book a Demo
             </button>
+            {/* Hamburger — mobile only */}
+            <button
+              onClick={() => setMobileMenuOpen((o) => !o)}
+              className="md:hidden flex flex-col gap-1.5 p-2 rounded-lg hover:bg-white/5 transition-colors cursor-pointer"
+              aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+              aria-expanded={mobileMenuOpen}
+            >
+              <span className={`block w-5 h-0.5 bg-white transition-all duration-200 ${mobileMenuOpen ? "rotate-45 translate-y-2" : ""}`} />
+              <span className={`block w-5 h-0.5 bg-white transition-all duration-200 ${mobileMenuOpen ? "opacity-0" : ""}`} />
+              <span className={`block w-5 h-0.5 bg-white transition-all duration-200 ${mobileMenuOpen ? "-rotate-45 -translate-y-2" : ""}`} />
+            </button>
           </div>
         </nav>
+
+        {/* Mobile menu overlay */}
+        {mobileMenuOpen && (
+          <div
+            className="fixed inset-0 z-40 bg-black/95 backdrop-blur-md flex flex-col pt-16"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Mobile navigation menu"
+          >
+            <nav className="flex flex-col px-6 pt-8 gap-1">
+              {[
+                { href: "#how-it-works", label: "How it works" },
+                { href: "#integrations", label: "Integrations" },
+                { href: "#brand-cure", label: "Brand Cure" },
+                { href: "#faq", label: "FAQ" },
+                { href: "#contact", label: "Contact" },
+              ].map((item) => (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="text-2xl font-semibold text-zinc-300 hover:text-white py-4 border-b border-white/5 transition-colors cursor-pointer"
+                >
+                  {item.label}
+                </a>
+              ))}
+            </nav>
+            <div className="px-6 pt-8 flex flex-col gap-3">
+              <button
+                onClick={() => { setMobileMenuOpen(false); openDemo(); }}
+                className="w-full py-4 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-black font-bold text-base transition-colors cursor-pointer"
+              >
+                Book a Demo
+              </button>
+              <button
+                onClick={() => { setMobileMenuOpen(false); openConsult(); }}
+                className="w-full py-4 rounded-xl border border-white/15 hover:border-white/30 text-white font-semibold text-base transition-colors cursor-pointer"
+              >
+                Brand Cure Consultation
+              </button>
+            </div>
+          </div>
+        )}
       </header>
 
       {/* ── Main content ── */}
@@ -383,12 +487,12 @@ export default function LandingClient() {
                   <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" aria-hidden />
                   AI-powered sales demo automation
                 </div>
-                <h1 id="hero-heading" className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white leading-[1.08] tracking-tight mb-6">
+                <h1 id="hero-heading" className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-extrabold text-white leading-[1.08] tracking-tight mb-6">
                   Your AI that runs
                   <br />
                   <span className="text-emerald-400">every sales demo.</span>
                 </h1>
-                <p className="text-lg md:text-xl text-zinc-400 max-w-2xl mx-auto mb-8 leading-relaxed">
+                <p className="text-base md:text-xl text-zinc-400 max-w-2xl mx-auto mb-8 leading-relaxed">
                   Record your best demo once. <strong className="text-zinc-300">DemoAgent by Grewbie</strong> joins every call on
                   Google Meet, Zoom, and Microsoft Teams — autonomously running personalised demos at scale
                   while you close more deals.
@@ -712,7 +816,7 @@ export default function LandingClient() {
 
       {/* ── Footer ── */}
       <footer className="relative z-10 border-t border-white/5 py-10 px-6" aria-label="Site footer">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
           <div className="flex items-center gap-2.5">
             <GrewbieLogo size={22} />
             <span className="text-sm text-zinc-500">
@@ -720,7 +824,7 @@ export default function LandingClient() {
               <span className="text-white font-medium">Grewbie Technologies Pvt Ltd</span>
             </span>
           </div>
-          <nav aria-label="Footer links" className="flex items-center gap-6 text-xs text-zinc-600">
+          <nav aria-label="Footer links" className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-zinc-600">
             <a href="mailto:support@grewbie.com" className="hover:text-emerald-400 transition-colors cursor-pointer">
               support@grewbie.com
             </a>
