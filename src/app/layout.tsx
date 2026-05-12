@@ -19,27 +19,47 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Grewbie DemoAgent — AI Sales Demo Automation for Meet, Zoom & Teams",
+    default: "DemoAgent by Grewbie — Automate Sales Demos on Meet, Zoom & Teams | AI Demo Automation",
     template: "%s | Grewbie Technologies",
   },
   description:
-    "DemoAgent by Grewbie Technologies is an AI agent that automatically joins Google Meet, Zoom, and Microsoft Teams calls to run personalised sales demos. Record once, scale infinitely. India-based SaaS startup.",
+    "DemoAgent by Grewbie Technologies automates your entire sales demo pipeline. Record your best demo once — our AI agent joins every Google Meet, Zoom, and Microsoft Teams call to run personalised demos 24/7, handle objections, and close more deals without adding headcount.",
   keywords: [
+    // Primary
     "AI sales demo automation",
-    "DemoAgent",
-    "Grewbie Technologies",
+    "automate sales demos",
+    "sales demo automation software",
     "AI demo agent",
-    "automated sales demo",
+    "DemoAgent",
+    // Platform-specific
     "Google Meet AI agent",
-    "Zoom AI agent",
-    "Microsoft Teams AI bot",
-    "sales automation India",
+    "Zoom AI bot",
+    "Microsoft Teams AI agent",
+    "AI agent for video calls",
+    // Intent / long-tail
+    "automated sales demo tool",
+    "record demo once deploy everywhere",
+    "AI agent for sales calls",
+    "sales demo on autopilot",
+    "B2B demo automation",
+    "demo automation for SaaS",
+    "virtual sales demo agent",
+    "autonomous demo software",
+    "scale sales demos without hiring",
+    // Brand
+    "Grewbie Technologies",
+    "Grewbie DemoAgent",
+    // India market
     "AI sales tool India",
-    "SaaS demo automation",
-    "Brand Cure AI",
+    "sales automation India",
+    "SaaS demo automation India",
+    "AI startup Tamil Nadu",
+    // Services
+    "Brand Cure",
     "AI marketing automation India",
-    "sales demo software",
-    "virtual sales agent",
+    "AI ad creatives India",
+    "landing page automation",
+    "sales workflow automation",
   ],
   authors: [{ name: "Grewbie Technologies Pvt Ltd", url: SITE_URL }],
   creator: "Grewbie Technologies Pvt Ltd",
@@ -65,9 +85,9 @@ export const metadata: Metadata = {
     alternateLocale: ["en_US", "en_GB"],
     url: SITE_URL,
     siteName: SITE_NAME,
-    title: "Grewbie DemoAgent — AI That Runs Your Sales Demos on Meet, Zoom & Teams",
+    title: "DemoAgent — Automate Your Sales Demos on Meet, Zoom & Teams | Grewbie",
     description:
-      "Record your best sales demo once. DemoAgent joins every prospect call autonomously, runs personalised demos, and handles objections — 24/7, on Google Meet, Zoom, and Microsoft Teams.",
+      "Automate your entire sales demo pipeline. Record once — DemoAgent joins every prospect call on Google Meet, Zoom, and Microsoft Teams, runs personalised demos, handles objections, and scales to unlimited concurrent calls, 24/7.",
     images: [
       {
         url: OG_IMAGE,
@@ -83,9 +103,9 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@grewbietech",
     creator: "@grewbietech",
-    title: "Grewbie DemoAgent — AI Sales Demo Automation",
+    title: "DemoAgent by Grewbie — Automate Sales Demos with AI",
     description:
-      "Your AI that joins Meet, Zoom & Teams and runs personalised sales demos autonomously. Record once, scale to infinity.",
+      "AI demo automation for B2B SaaS. Record your best sales demo once — DemoAgent joins Meet, Zoom & Teams calls autonomously, scales to unlimited demos, and never has a bad demo day.",
     images: [OG_IMAGE],
   },
 

@@ -161,7 +161,7 @@ const STEPS: StoryStep[] = [
     eyebrow: "Step 01 — Record",
     title: "Show it once.\nThe agent learns.",
     description:
-      "Record your ideal demo call through the Grewbie browser extension. DemoAgent captures every click, every word, every decision — turning your best rep's performance into a replayable AI playbook.",
+      "Record your ideal demo call once through the Grewbie browser extension. DemoAgent captures every click, every word, and every decision — turning your best rep's performance into a replayable AI sales demo playbook you can deploy on every call.",
     accent: "#10b981",
     visual: (
       <div className="rounded-2xl border border-emerald-500/20 bg-zinc-900/80 p-6 backdrop-blur-sm">
@@ -192,7 +192,7 @@ const STEPS: StoryStep[] = [
     eyebrow: "Step 02 — Deploy",
     title: "AI joins the call.\nYou keep selling.",
     description:
-      "Connect your calendar and DemoAgent automatically joins every booked demo on Google Meet, Zoom, or Microsoft Teams. It runs the playbook, answers questions from your knowledge base, handles objections — autonomously.",
+      "Connect your calendar and DemoAgent automatically joins every booked demo on Google Meet, Zoom, or Microsoft Teams. The AI runs your demo playbook, answers live prospect questions, and handles objections — completely autonomously, with no human rep required.",
     accent: "#34d399",
     visual: (
       <div className="rounded-2xl border border-emerald-500/20 bg-zinc-900/80 p-6 backdrop-blur-sm">
@@ -224,7 +224,7 @@ const STEPS: StoryStep[] = [
     eyebrow: "Step 03 — Scale",
     title: "One agent.\nInfinite demos.",
     description:
-      "Run hundreds of personalised demo calls simultaneously. No scheduling conflicts, no bad demo days, no ramp time for new reps. Every prospect gets an always-on, tailored experience — at the quality of your best performance.",
+      "Automate hundreds of personalised demo calls simultaneously — with zero scheduling conflicts, zero bad demo days, and zero ramp time for new reps. Every prospect gets a consistent, tailored AI sales demo experience at the quality of your best-ever performance.",
     accent: "#6ee7b7",
     visual: (
       <div className="rounded-2xl border border-emerald-500/20 bg-zinc-900/80 p-6 backdrop-blur-sm">
@@ -485,17 +485,17 @@ export default function LandingClient() {
               <div>
                 <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 text-xs font-medium mb-6">
                   <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" aria-hidden />
-                  AI-powered sales demo automation
+                  AI sales demo automation software
                 </div>
                 <h1 id="hero-heading" className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-extrabold text-white leading-[1.08] tracking-tight mb-6">
-                  Your AI that runs
+                  Automate every sales demo
                   <br />
-                  <span className="text-emerald-400">every sales demo.</span>
+                  <span className="text-emerald-400">with AI.</span>
                 </h1>
                 <p className="text-base md:text-xl text-zinc-400 max-w-2xl mx-auto mb-8 leading-relaxed">
-                  Record your best demo once. <strong className="text-zinc-300">DemoAgent by Grewbie</strong> joins every call on
-                  Google Meet, Zoom, and Microsoft Teams — autonomously running personalised demos at scale
-                  while you close more deals.
+                  Record your best demo once. <strong className="text-zinc-300">DemoAgent by Grewbie</strong> automatically joins
+                  every booked call on Google Meet, Zoom, and Microsoft Teams — running personalised, autonomous
+                  sales demos at scale while you focus on closing.
                 </p>
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                   <button
@@ -537,7 +537,7 @@ export default function LandingClient() {
               DemoAgent platform integrations
             </h2>
             <p className="text-sm text-zinc-500 uppercase tracking-widest mb-8">
-              Works with every platform your prospects use
+              AI demo automation for Google Meet, Zoom &amp; Microsoft Teams
             </p>
             <div className="flex items-center justify-center gap-10 md:gap-16 flex-wrap" role="list" aria-label="Supported video conferencing platforms">
               {[
@@ -559,7 +559,7 @@ export default function LandingClient() {
           <div className="max-w-2xl mx-auto text-center pt-24 pb-8 px-6">
             <p className="text-sm font-semibold tracking-widest uppercase text-emerald-500 mb-4">How it works</p>
             <h2 id="how-heading" className="text-3xl md:text-5xl font-bold text-white">
-              Three steps to demo at scale
+              Three steps to automate your sales demos
             </h2>
           </div>
           <StoryScroll steps={STEPS} />
@@ -569,7 +569,7 @@ export default function LandingClient() {
         <section aria-label="DemoAgent key metrics" className="relative z-10 py-24 border-t border-white/5">
           <div className="max-w-5xl mx-auto px-6">
             <p className="text-center text-sm text-zinc-500 uppercase tracking-widest mb-12">
-              Built for sales teams who need to move fast
+              Why sales teams choose DemoAgent to automate demos
             </p>
             <dl className="grid grid-cols-2 md:grid-cols-4 gap-6">
               {[
@@ -599,8 +599,8 @@ export default function LandingClient() {
                 Brand Cure
               </h2>
               <p className="text-zinc-400 text-lg max-w-2xl mx-auto">
-                Grewbie&rsquo;s AI marketing and automation services division — AI ads, landing pages,
-                automation workflows, and branding for startups and SMBs.
+                Grewbie&rsquo;s AI marketing and automation services division — AI ad creatives, conversion-optimised
+                landing pages, sales automation workflows, and branding for Indian startups and SMBs.
               </p>
             </div>
 
@@ -750,12 +750,12 @@ export default function LandingClient() {
             <div>
               <p className="text-sm font-semibold tracking-widest uppercase text-emerald-500 mb-4">Get in touch</p>
               <h2 id="contact-heading" className="text-3xl md:text-4xl font-bold text-white mb-5 leading-tight">
-                Ready to automate
+                Start automating
                 <br />
-                <span className="text-emerald-400">your demo pipeline?</span>
+                <span className="text-emerald-400">your sales demos today.</span>
               </h2>
               <p className="text-zinc-400 text-lg leading-relaxed mb-8">
-                Whether you want to see DemoAgent live or explore Brand Cure services — fill in the form and we&rsquo;ll reach out within 24 hours.
+                Book a live demo of DemoAgent or explore Brand Cure&rsquo;s AI marketing services — fill in the form and we&rsquo;ll reach out within 24 hours.
               </p>
               <div className="space-y-4 text-sm text-zinc-500">
                 {[
@@ -790,10 +790,10 @@ export default function LandingClient() {
               style={{ background: "radial-gradient(ellipse 80% 60% at 50% 50%, rgba(16,185,129,0.12) 0%, rgba(0,0,0,0) 70%), #09090b" }}
             >
               <h2 className="text-2xl md:text-4xl font-extrabold text-white mb-4 leading-tight">
-                Or jump straight in —
+                See AI demo automation live —
               </h2>
               <p className="text-zinc-400 mb-8 max-w-lg mx-auto">
-                Book a live call and see DemoAgent conduct a demo on Meet, Zoom, or Teams right in front of you.
+                Book a call and watch DemoAgent autonomously conduct a fully personalised sales demo on Meet, Zoom, or Teams — in real time.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <button
