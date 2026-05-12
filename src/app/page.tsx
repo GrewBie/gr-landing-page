@@ -38,7 +38,6 @@ const orgSchema: WithContext<Organization> = {
       email: "support@grewbie.com",
     },
   ],
-  sameAs: [],
   knowsAbout: [
     "AI sales automation",
     "sales demo automation",
@@ -113,12 +112,6 @@ const websiteSchema: WithContext<WebSite> = {
   publisher: {
     "@type": "Organization",
     "@id": `${SITE_URL}/#organization`,
-  },
-  potentialAction: {
-    "@type": "SearchAction",
-    target: { "@type": "EntryPoint", urlTemplate: `${SITE_URL}/?q={search_term_string}` },
-    // @ts-expect-error schema-dts query-input type
-    "query-input": "required name=search_term_string",
   },
 };
 
