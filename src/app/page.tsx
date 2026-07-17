@@ -13,7 +13,7 @@ const orgSchema: WithContext<Organization> = {
   url: SITE_URL,
   logo: `${SITE_URL}/logo.png`,
   description:
-    "Grewbie Technologies Pvt Ltd is an Indian AI software company that builds AI-powered sales automation tools. Its flagship product, DemoAgent, is an AI agent that autonomously joins Google Meet, Zoom, and Microsoft Teams calls to conduct personalised sales demos. Grewbie also offers Brand Cure, a suite of AI marketing and automation services.",
+    "Grewbie Technologies Pvt Ltd is an Indian AI software company that builds AI-powered sales automation tools. Its flagship product, DemoAgent, is an AI agent that autonomously joins Google Meet, Zoom, and Microsoft Teams calls to conduct personalised sales demos. Grewbie also offers Brand Cure, a suite of AI marketing and automation services, and Forca, an AI product that automates back-office work for Chartered Accountant firms.",
   foundingDate: "2024",
   foundingLocation: {
     "@type": "Place",
@@ -57,6 +57,7 @@ const orgSchema: WithContext<Organization> = {
     itemListElement: [
       { "@type": "Offer", itemOffered: { "@type": "SoftwareApplication", name: "DemoAgent" } },
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "Brand Cure" } },
+      { "@type": "Offer", itemOffered: { "@type": "SoftwareApplication", name: "Forca" } },
     ],
   },
 };
@@ -167,6 +168,14 @@ const faqSchema: WithContext<FAQPage> = {
       acceptedAnswer: {
         "@type": "Answer",
         text: "Brand Cure is Grewbie Technologies' AI marketing and automation services division. It offers AI-generated advertising creatives, conversion-optimised landing pages, marketing automation workflows, sales automation pipelines, and branding services — primarily for Indian startups, SMBs, and SaaS companies.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What is Forca by Grewbie?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Forca is an AI product built by Grewbie Technologies that automates back-office work for Chartered Accountant (CA) firms in India — automatically chasing clients for missing documents over WhatsApp, running deterministic, rule-based GST reconciliation against client books, and routing every action through a human-in-the-loop approval gate before it is finalized. Forca is currently in a live paid pilot with a CA firm client, onboarding additional firms for early access.",
       },
     },
     {

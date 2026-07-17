@@ -2,7 +2,7 @@
 import { useState, FormEvent } from "react";
 
 export interface LeadFormProps {
-  defaultInterest?: "demo" | "brand-cure" | "general";
+  defaultInterest?: "demo" | "brand-cure" | "forca" | "general";
   onSuccess?: () => void;
   compact?: boolean;
 }
@@ -10,6 +10,7 @@ export interface LeadFormProps {
 const INTERESTS = [
   { value: "demo", label: "Book a Demo" },
   { value: "brand-cure", label: "Brand Cure Consultation" },
+  { value: "forca", label: "Forca Early Access" },
   { value: "general", label: "General Inquiry" },
 ] as const;
 

@@ -6,12 +6,14 @@ import { randomUUID } from "crypto";
 const INTEREST_LABELS: Record<string, string> = {
   demo: "Book a Demo",
   "brand-cure": "Brand Cure Consultation",
+  forca: "Forca Early Access",
   general: "General Inquiry",
 };
 
 const INTEREST_NEXT_STEPS: Record<string, string> = {
   demo: "We'll schedule a live call where you can see DemoAgent conduct an actual sales demo on Google Meet, Zoom, or Teams.",
   "brand-cure": "We'll hop on a call to understand your marketing goals and show you exactly how Brand Cure can help.",
+  forca: "We'll reach out to understand your CA practice's workflow and set up a walkthrough of Forca.",
   general: "One of our team members will reach out to answer your questions and explore how we can help.",
 };
 
